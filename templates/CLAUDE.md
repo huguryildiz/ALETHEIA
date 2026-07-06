@@ -37,6 +37,8 @@ aletheia:
   phase_plan:       "docs/roadmap/plan.md"                           # phase tables + acceptance checklists (phase-gate)
   env_manifest:     "pyproject.toml"                                 # + lockfile alongside (environment-lock)
   data_dir:         "data/"                                          # input data root (data-fingerprint)
+  bibliography:     "docs/references.bib"                            # verified citations (lit-anchor)
+  claim_log:        "docs/novelty_claims.md"                         # optional: novelty/absence claims + backing searches (lit-anchor)
 ```
 
 ## Work-type routing (default + escalation — NOT mandatory-every-time)
@@ -54,6 +56,7 @@ conditional. Never turn a small change into bureaucracy.**
 | phase conclusion | `phase-gate` checklist | + `build-log` when it is a real milestone, not a trivial sub-step |
 | assumption / default change | `decision-log` entry | + `layer-sync` when it touches ≥ 2 layers; + `canonical-params` when it is a canonical default |
 | dead end / failed attempt | one-line `negative-results-ledger` entry | — (stays light) |
+| citing prior work / bibliography | verify each source one-by-one (`lit-anchor`) | + `external-positioning` when it backs a novelty/absence claim |
 
 ## Operating rules (project-pinned summaries; the skills carry the detail)
 

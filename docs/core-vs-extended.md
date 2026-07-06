@@ -15,15 +15,15 @@ day one; each one exists because its absence produced a real failure mode.
 `correctness-gate` · `canonical-params` · `environment-lock` · `data-fingerprint` ·
 `evidence-convention` · `research-methodology`
 
-## Extended (6) — `tier: extended`, `status: recommended`
+## Extended (7) — `tier: extended`, `status: recommended`
 
 The reproducibility-and-positioning canon: authored against computational-science best
 practice, grounded in the exemplar where it practiced them. Recommended, adopted
 deliberately — a small exploratory project may defer some; a project writing a paper should
-be running all six by submission time.
+be running all seven by submission time.
 
 `reproducibility-provenance` · `statistical-reporting` · `numerical-determinism` ·
-`negative-results-ledger` · `notebook-vs-script` · `external-positioning`
+`negative-results-ledger` · `notebook-vs-script` · `external-positioning` · `lit-anchor`
 
 ## Generator (1) — `tier: generator`
 
@@ -47,6 +47,7 @@ small change into bureaucracy.**
 | phase conclusion | `phase-gate` checklist | + `build-log` when it is a real milestone, not a trivial sub-step |
 | assumption / default change | `decision-log` entry | + `layer-sync` when it touches ≥ 2 layers; + `canonical-params` when it is a canonical default |
 | dead end / failed attempt | one-line `negative-results-ledger` entry | — (stays light) |
+| citing prior work / bibliography | verify each source one-by-one (`lit-anchor`) | + `external-positioning` when it backs a novelty/absence claim |
 
 ## Agents (3) — read-only auditors
 

@@ -25,7 +25,7 @@ the example.
 
 ## What ships
 
-**17 skills + 1 generator + 3 agents + 5 templates + 5 docs + 1 worked example.**
+**18 skills + 1 generator + 3 agents + 5 templates + 5 docs + 1 worked example.**
 
 ### Core skills (11) — everyday discipline
 
@@ -53,6 +53,7 @@ the example.
 | `negative-results-ledger` | dead ends leave a one-line record; rigorous negatives get promoted, not buried |
 | `notebook-vs-script` | one-offs → notebooks, pipelines → scripts, shared logic → the package |
 | `external-positioning` | novelty bookkept, citations verified one-by-one, claims scoped to evidence |
+| `lit-anchor` | AI fabricates citations — resolve every DOI one-by-one; a bulk citation list is a draft, never a result |
 
 ### Generator
 
