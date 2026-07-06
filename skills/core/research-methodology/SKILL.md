@@ -48,7 +48,7 @@ numbers before running are falsifiable; hypotheses fitted to output afterward ar
 ## Idea lifecycle
 
 - **Probe** — a one-off question runs as a notebook or script-level flag
-  (`notebook-vs-script`), never by editing defaults (`canonical-params`). Cheap, disposable,
+  (`project-layout`), never by editing defaults (`canonical-params`). Cheap, disposable,
   logged lightly.
 - **Adopt** — the probe changed a default, a method, or the plan → `decision-log` entry with
   evidence linked; propagation owed to the other layers (`layer-sync`).

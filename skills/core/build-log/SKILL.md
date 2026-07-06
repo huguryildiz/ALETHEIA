@@ -32,7 +32,7 @@ the project, cite this entry? If no — do not open one.
 - A single module was added → `git log` + the module's docstring suffice.
 - A decision was just written → wait; open the entry when its first implementation +
   evidence exist.
-- Transient exploratory probe → notebook (`notebook-vs-script`).
+- Transient exploratory probe → notebook (`project-layout`).
 - Refactor / cleanup / docstring pass → the commit message is the record.
 - Anything git already records well (commit messages, PR descriptions).
 

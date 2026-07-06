@@ -1,7 +1,7 @@
 ---
 name: project-layout
 description: >-
-  Use when starting a new computational-science project, restructuring an existing one, or deciding where a new module, script, notebook, dataset, or document belongs. Also use when reviewing whether a repository's layout still matches its documented map. Trigger phrases: "where should this file go", "set up the project structure", "scaffold the repo", "folder layout", "project organization", "does this belong in scripts or notebooks".
+  Use when starting a new computational-science project, restructuring an existing one, or deciding where a new module, script, notebook, dataset, or document belongs — including whether a piece of work is a notebook one-off or a reusable script, and maintaining the notebook series. Also use when reviewing whether a repository's layout still matches its documented map. Trigger phrases: "where should this file go", "set up the project structure", "scaffold the repo", "folder layout", "project organization", "does this belong in scripts or notebooks", "notebook or script", "should this be a notebook or a script", "make this rerunnable", "the notebook is stale", "promote this to a script".
 tier: core
 ---
 
@@ -90,6 +90,32 @@ Adapt names to the project; keep the separations. The copyable version lives in 
    citable; the docs authority map (`docs/README.md`) records what is current.
 7. **Every directory earns a one-line intent** in the layout document. A directory nobody can
    describe in one line is a candidate for removal.
+
+## Placement + notebook discipline
+
+Rule 1 states the routing (one-offs → `notebooks/`, pipelines → `scripts/`, shared logic →
+the package); the discipline below is how each destination avoids its characteristic rot —
+notebooks rot as un-diffable pipelines, scripts rot as unread one-offs, copy-pasted logic
+rots everywhere at once.
+
+- **The notebook is the default**; a script is *earned* by re-run demand, not granted by
+  optimism. Second manual re-run of a notebook for fresh outputs is the promotion signal:
+  move the logic into the package, wrap a CLI script around it, keep the notebook as the
+  narrative importing the same functions, and note the promotion in the manifest.
+- **Numbered series with a manifest.** `NN_kebab-topic.ipynb`, numbering append-only (reusing
+  a number breaks every citation to the old one); `notebooks/README.md` states each notebook's
+  role and rerun policy (live / frozen / archived).
+- **Execute top-to-bottom before commit.** A committed notebook carries its outputs — run it
+  in place (e.g. `jupyter nbconvert --execute --inplace`) so the repo version shows what the
+  code actually produces. A stale committed notebook is a bug: re-execute it or mark it
+  frozen/archived. Retired series move to `notebooks/archive/`, numbers never reused
+  (historical notebooks pinned to old APIs are narrative, not drift — `layer-sync` rule 7).
+- **Narrative is the point; no library logic in cells.** Prose cells state the question,
+  method, and reading of each figure — a notebook that is only code should have been a script,
+  and the moment a function is worth reusing it moves to the package. Scripts orchestrate
+  (argument parsing + calls into `src/` + output writing); heavy logic inside a script is
+  library code in hiding. Never edit defaults to probe — a probe is a notebook cell or a
+  script flag (`canonical-params`).
 
 ## Configuration
 

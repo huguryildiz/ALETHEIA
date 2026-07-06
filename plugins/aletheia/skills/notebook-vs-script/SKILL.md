@@ -1,1 +1,0 @@
-../../../../skills/extended/notebook-vs-script/SKILL.md

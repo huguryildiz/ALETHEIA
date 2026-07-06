@@ -23,7 +23,7 @@ bulk.**
 
 ## When NOT to use
 
-- Small exploratory probes — those are notebook work (`notebook-vs-script`); the convention
+- Small exploratory probes — those are notebook work (`project-layout`); the convention
   starts when a result will outlive the session.
 - Pure cache regeneration with no new claim attached (caches are inputs, not evidence — but
   see `data-fingerprint` for their keys).

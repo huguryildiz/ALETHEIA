@@ -48,7 +48,7 @@ conditional. Never turn a small change into bureaucracy.**
 
 | Work type (trigger) | Default (do this) | Escalate to … when … |
 |---|---|---|
-| small exploration | notebook + light note (`notebook-vs-script`) | — (stays light) |
+| small exploration | notebook + light note (`project-layout`) | — (stays light) |
 | reusable experiment / real run | script + `evidence-convention` (results dir + meta) | + `environment-lock` & `data-fingerprint` when it feeds a paper figure/claim or must be reproduced by others |
 | critical logic change | `correctness-gate` (run the named gate) | + `canonical-params` when it touches protected defaults; + `decision-log` when a red gate is an *intentional* formulation change |
 | stochastic run | record seeds (`reproducibility-provenance`) | + `numerical-determinism` when results must be bit-reproducible / cross-machine |

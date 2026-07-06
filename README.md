@@ -103,7 +103,6 @@ domains.**
 | `statistical-reporting` | never report a single run; replication + intervals + visible denominators |
 | `numerical-determinism` | threads/kernels pinned where claimed; hardware context recorded; reproducibility tiers named |
 | `negative-results-ledger` | dead ends leave a one-line record; rigorous negatives get promoted, not buried |
-| `notebook-vs-script` | one-offs → notebooks, pipelines → scripts, shared logic → the package |
 | `external-positioning` | novelty book-kept; claims scoped to the evidence that supports them |
 | `lit-anchor` | AI fabricates citations — resolve every DOI one-by-one; a bulk citation list is a draft, never a result |
 

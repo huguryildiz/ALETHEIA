@@ -26,7 +26,7 @@ chain of the eventual paper stays traceable.
 
 - Implementation details fully visible in the code and its tests — the diff is the record.
 - Transient exploration ("let's see this number") — that is a notebook note
-  (`notebook-vs-script`), promoted to a decision only if it changes a default.
+  (`project-layout`), promoted to a decision only if it changes a default.
 - Run evidence and numbers — those live in the build log and `{{evidence_dir}}`; the
   decision entry *links* to them.
 - Rewriting history — never edit an old entry's substance; supersede it.
