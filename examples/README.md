@@ -1,15 +1,24 @@
 # Worked examples
 
-Aletheia's skills are **domain-free** — they name no field, no tool, no equation. These
-**fictional** examples show the same disciplines instantiated in real computational workflows.
-They are illustrations, not real repositories.
+Aletheia's skills are **domain-free** — they name no field, no tool, no equation. Most examples
+below are **fictional** — illustrations, not real repositories. One is real (see below).
 
 The pack's Core was harvested from, and its Extended tier stress-tested against, a real
 computational-research repository. That repository is **not named or reproduced here**, and no
 skill or template contains a domain term — the portability gate (`grep` over `skills/` and
 `templates/` for domain vocabulary must return zero) enforces this by construction.
 
-## Full examples
+## Real worked example
+
+One page is **not** fictional. It reproduces an actual AI failure mode — a 3GPP TR 36.777
+air-to-ground path-loss model that silently mixed UMa and UMi scenario parameters — with real
+spec-verified constants and a script that was actually run, and shows the gate catching it.
+
+| Example | Domain | Signature skill it spotlights |
+|---|---|---|
+| [A2G path-loss parameter mismatch (real)](a2g-pathloss-3gpp.md) | Wireless / telecom | `correctness-gate` + `canonical-params` + `lit-anchor` |
+
+## Full (fictional) examples
 
 | Example | Domain | Signature skill it spotlights |
 |---|---|---|

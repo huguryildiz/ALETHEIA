@@ -37,11 +37,11 @@ discipline it triggers — with escalation conditions, so a small change never i
 ceremony.
 
 <p align="center">
-  <img src="assets/before-after.png" alt="Before and after Aletheia: a hollow 'done' claim built on hidden reproducibility rot — unlogged seed, one lucky run, silently loosened tolerance, an unverified DOI, an unregenerable figure — becomes a gate-verified closure where each item is disclosed and backed by named evidence." width="100%">
+  <img src="assets/before-after.png" alt="Before and after Aletheia: a real AI-generated 3GPP TR 36.777 A2G path-loss model silently mixed UMa path loss with UMi LoS-probability parameters — surface-correct, a 10 dB error — and is held at the gate until every coefficient is traced to one scenario and one spec table." width="100%">
 </p>
 
 <p align="center">
-  <sub>What the discipline changes: a confident but unverifiable <em>“done”</em> is held at the gate until every hidden assumption is disclosed and evidenced.</sub>
+  <sub>A <strong>real</strong> case (<a href="examples/a2g-pathloss-3gpp.md">worked out here</a>): an AI mixed 3GPP scenario parameters — surface-correct, a 10 dB error — and is held at the gate until every coefficient is traced to one scenario and one spec table.</sub>
 </p>
 
 ## Motivation
