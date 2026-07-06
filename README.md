@@ -37,7 +37,7 @@ discipline it triggers — with escalation conditions, so a small change never i
 ceremony.
 
 <p align="center">
-  <img src="assets/before-after.png" alt="Before and after Aletheia: a real AI-generated 3GPP TR 36.777 A2G path-loss model silently mixed UMa path loss with UMi LoS-probability parameters — surface-correct, a 10 dB error — and is held at the gate until every coefficient is traced to one scenario and one spec table." width="100%">
+  <img src="assets/before-after.svg" alt="Chart: for a UAV at 100 m the correct 3GPP TR 36.777 UMa-AV line-of-sight probability stays high with distance, while an AI model that mixed in UMi-AV parameters collapses it — at 1 km, 0.85 versus 0.25, a 10 dB error and physically backwards." width="100%">
 </p>
 
 <p align="center">
