@@ -4,20 +4,24 @@ Aletheia's skills are **domain-free** — they name no field, no tool, no equati
 below are **fictional** — illustrations, not real repositories. One is real (see below).
 
 The pack's Core was harvested from, and its Extended tier stress-tested against, a real
-computational-research repository. That repository is **not named or reproduced here**, and no
-skill or template contains a domain term — the portability gate (`grep` over `skills/` and
-`templates/` for domain vocabulary must return zero) enforces this by construction.
+computational-research repository — underwater sensor network (UWSN) k-connectivity
+optimization, behind a **published** paper (IEEE doc 11143186). Because it is published, it is
+named and reproduced below (`uwsn-k-connectivity/`); no skill or template contains a domain
+term regardless — the portability gate (`grep` over `skills/` and `templates/` for domain
+vocabulary must return zero) enforces this by construction, independent of what `examples/`
+shows.
 
 ## Real worked example
 
-Two pages are **not** fictional. Each reproduces an actual failure mode with real numbers from a
-script that was run, and shows the gate catching it — one against a published spec, one against a
-mathematical constant.
+Three pages are **not** fictional. Each reproduces an actual failure mode with real numbers from
+a script that was run, and shows the gate catching it (or, for the third, honestly names where
+no fast gate exists).
 
 | Example | Domain | Signature skill it spotlights |
 |---|---|---|
 | [A2G path-loss parameter mismatch (real)](a2g-pathloss-3gpp.md) | Wireless / telecom | `correctness-gate` + `canonical-params` + `lit-anchor` |
 | [Monte Carlo π — lucky run, over-claimed precision (real)](monte-carlo-pi.md) | Numerical / stats | `statistical-reporting` + `reproducibility-provenance` + `correctness-gate` |
+| [UWSN k-connectivity — real generator adoption (real)](adoption-transcript.md) | Wireless sensor networks | full `skill-library-generator` run; first end-to-end adoption on a public, non-exemplar repo |
 
 ## Full (fictional) examples
 
