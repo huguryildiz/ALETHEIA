@@ -108,7 +108,7 @@
     },
     "expectation": {
       "type": "string",
-      "description": "Pre-registered prediction written BEFORE launch — direction, rough magnitude, and any pre-declared branches (see research-methodology)."
+      "description": "Pre-registered prediction written BEFORE launch — direction, rough magnitude, and any pre-declared branches (see evidence-convention)."
     },
     "outputs": {
       "type": "array",

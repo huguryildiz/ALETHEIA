@@ -92,7 +92,6 @@ domains.**
 | `canonical-params` | protected defaults change only inside a sweep or with approval and a record |
 | `run-provenance` | engine/arch fingerprint + input hashes + re-derivable seeds — everything `meta.json` must record about a run |
 | `evidence-convention` | no dark runs: `results/<name>_<date>/meta.json` with pre-registered expectations |
-| `research-methodology` | claims follow verification; predictions precede runs; ceremony scales with consequence |
 
 ### Extended skills (7) — reproducibility & positioning · `status: recommended`
 

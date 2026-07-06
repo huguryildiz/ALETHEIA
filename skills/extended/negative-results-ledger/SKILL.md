@@ -55,7 +55,7 @@ is high — "too minor to record" is how the same dead end gets re-explored quar
 4. **Primary finding** — the negative result *answers the research question* (an
    infeasibility that proves a constraint is binding, a null that kills a hypothesized
    effect). Treat it as a first-class result: full evidence chain, statistical treatment,
-   pre-registered branch honored (`research-methodology`), and a place in the paper.
+   pre-registered branch honored (`evidence-convention`), and a place in the paper.
 
 ## Rules
 
@@ -68,7 +68,7 @@ is high — "too minor to record" is how the same dead end gets re-explored quar
 3. **Date everything.** A dead end from an old code era may deserve a revisit; the date is
    what makes that judgment possible.
 4. **Check before you start.** The ledger is read at idea-triage time
-   (`research-methodology` idea lifecycle) — a hit does not forbid retrying, it demands
+   (the idea lifecycle: probe → adopt → retire) — a hit does not forbid retrying, it demands
    engaging with why it died last time.
 5. **Negative results are publishable material.** The limitations section, the "approaches
    we ruled out" paragraph, and sometimes the headline finding come straight from this

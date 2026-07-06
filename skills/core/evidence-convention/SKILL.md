@@ -37,7 +37,7 @@ bulk.**
    - config hash + input-data hashes (see `run-provenance`);
    - environment fingerprint (see `run-provenance`);
    - parameters/grid actually run, seeds/realization list;
-   - `expectation` — what was predicted **before** running (see `research-methodology`);
+   - `expectation` — what was predicted **before** running (pre-registration; numbers fitted afterward are captions);
    - `status` and pointers to output files.
    If the script does not write `meta.json` itself, the runner writes it by hand — absence
    of tooling is not absence of obligation.

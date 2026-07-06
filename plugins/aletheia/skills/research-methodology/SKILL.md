@@ -1,1 +1,0 @@
-../../../../skills/core/research-methodology/SKILL.md

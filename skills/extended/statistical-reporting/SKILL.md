@@ -54,7 +54,7 @@ how numbers become claims.
 1. **One run, no claim.** A single-realization number may appear only as a labeled
    illustration ("representative realization"), never as the result.
 2. **The comparison set is declared in advance** (the run contract / `expectation` field —
-   see `research-methodology`). Comparisons invented after seeing the numbers are labeled
+   see `evidence-convention`). Comparisons invented after seeing the numbers are labeled
    post-hoc and carry no confirmatory weight.
 3. **No selective replication.** Adding realizations until the test passes, or dropping
    "unlucky" seeds, is p-hacking with extra steps; N is fixed by the contract, deviations
