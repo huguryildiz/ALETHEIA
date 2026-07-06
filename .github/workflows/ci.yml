@@ -20,13 +20,15 @@ jobs:
 
       - name: Relative markdown links resolve
         run: |
-          set -euo pipefail
+          set -uo pipefail
           fail=0
           while IFS= read -r md; do
             # strip fenced code blocks (```...```) so template/example links aren't checked
             # extract ](target) links that are not http/mailto/anchor-only
-            awk '/^```/ { infence = !infence; next } infence { next } { print }' "$md" \
-              | grep -oE '\]\(([^)]+)\)' | sed -E 's/^\]\(//; s/\)$//' | while IFS= read -r link; do
+            links=$(awk '/^```/ { infence = !infence; next } infence { next } { print }' "$md" \
+              | grep -oE '\]\(([^)]+)\)' | sed -E 's/^\]\(//; s/\)$//')
+            while IFS= read -r link; do
+              [ -z "$link" ] && continue
               case "$link" in
                 http*|mailto:*|\#*) continue ;;
               esac
@@ -34,9 +36,10 @@ jobs:
               [ -z "$target" ] && continue
               dir=$(dirname "$md")
               if [ ! -e "$dir/$target" ] && [ ! -e "$target" ]; then
-                echo "DEAD LINK in $md -> $link"; exit 3
+                echo "DEAD LINK in $md -> $link"
+                fail=1
               fi
-            done || fail=1
+            done <<< "$links"
           done < <(git ls-files '*.md')
           test "$fail" -eq 0
 
