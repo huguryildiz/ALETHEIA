@@ -51,8 +51,20 @@ $ git log --oneline -30 -- examples/uwsn-k-connectivity
 - No environment manifest, no test directory, no README/CLAUDE.md, no decision or build log
   existed before this adoption.
 - `Model/VariableK_MR.py` (346 lines) imports `gurobipy` — a commercial MILP solver
-  requiring a license — and is the sole producer of `solutions_k1.csv`, `solutions_k3.csv`,
-  `solutions_k1_k3.csv`.
+  requiring a license — and computes the k-connectivity solutions for `k_conn` = 1..3.
+- **Correction, found while attempting to actually run it (see §3a below):**
+  `VariableK_MR.py` does **not** write `solutions_k1.csv` / `solutions_k3.csv` /
+  `solutions_k1_k3.csv` — confirmed by `grep -n "solutions\|to_csv\|writerow\|savetxt\|DataFrame" Model/VariableK_MR.py`,
+  which returns no matches. It only writes `Results_<timestamp>.txt`, containing aggregate
+  summary rows (`countNo; k_conn; objective; MIP_gap; runtime`), not the per-edge
+  `i,j,k,l,val` rows the committed CSVs actually contain. The step that turns a solved
+  model's `f`/`g` variables (present in the code, but only ever read via a commented-out
+  post-processing block at the file's end — never written to disk) into those CSVs is
+  **not present anywhere in this repository**. An earlier draft of this transcript stated
+  the opposite (that this script "is the sole producer" of the CSVs) — that was an
+  unverified inference stated as fact, caught only once we tried to actually exercise the
+  gate. It is corrected here rather than silently fixed, per the pack's own
+  ground-truth-only rule.
 - Those three CSVs are each read by exactly one corresponding MATLAB script:
   `plot_k1.m` ↔ `solutions_k1.csv`, `plot_k3.m` ↔ `solutions_k3.csv`,
   `plot_k1_k3.m` ↔ `solutions_k1_k3.csv` (confirmed by `grep -n "readtable" *.m`).
@@ -104,6 +116,30 @@ honest resolution taken here: bind `gate_command` to `null` and write out the re
 procedure in `CLAUDE.md` Rule 1, rather than either (a) inventing a fake fast command that
 would silently pass without ever running the real solver, or (b) omitting the gate concept
 entirely and pretending correctness isn't a concern for this repo.
+
+## 3a. Attempted live verification (what actually happened when we tried)
+
+After the scaffold below shipped, we tried to actually exercise the manual gate rather than
+just describe it, to check the description was honest.
+
+**Observed**: `gurobipy` was importable and a real academic license was active (expires
+2026-11-28) in this environment — `mdl.optimize()` on a trivial one-variable model
+succeeded. No MATLAB was available, so the `plot_k*.m` half of the gate could not be run
+here regardless. Running `Model/VariableK_MR.py` unmodified at `node=30` (its committed
+value) did not return a solution within several minutes — the delay was in Python-side
+model construction (nested loops building `Interference` as a `(30,30,30)` array and the
+MILP's variables/constraints), not in Gurobi's own `TimeLimit=3600` setting, which only
+bounds the solver call itself. The run was stopped rather than left to complete
+indefinitely.
+
+**What that attempt surfaced**: trying to actually run the gate is what caught the CSV-
+provenance error corrected in §1 above — `VariableK_MR.py` has no code path that writes
+`solutions_k1.csv`-shaped output, so even a completed run would not have reproduced the
+committed CSVs. **This is itself the honest finding worth keeping**: the manual gate
+described above is *aspirational* — it describes what verification *should* look like, but
+as shared, this repo cannot actually reproduce its own committed evidence end-to-end
+without an undocumented step. That gap is now recorded here and in `CLAUDE.md`, not papered
+over.
 
 ## 4. Scaffold produced (diff)
 

@@ -40,7 +40,7 @@ uwsn-k-connectivity/
 
 | Directory / file | Responsibility | Notes |
 |---|---|---|
-| `Model/VariableK_MR.py` | the MILP that produces the k-connectivity solutions | in `critical_modules`; requires a Gurobi license |
+| `Model/VariableK_MR.py` | the MILP that computes k-connectivity solutions in-memory | in `critical_modules`; requires a Gurobi license; does **not** write the `solutions_k*.csv` files below — see `CLAUDE.md` Rule 5 |
 | `plot_k1.m` / `plot_k3.m` / `plot_k1_k3.m` | regenerate figures from real solution CSVs | in `critical_modules` |
 | `testplot_v1.m`, `toyExampleplot_v*.py` | stale — reference a nonexistent `solutions.csv` | not in `critical_modules`; not deleted (no re-architecting) |
 | `Results-2024-09-15/`, `Results-2025-05-01/` | historical, pre-adoption output snapshots | not migrated into `results/`; kept as ground truth of what the generator actually saw |

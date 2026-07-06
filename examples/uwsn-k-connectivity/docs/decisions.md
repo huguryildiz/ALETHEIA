@@ -34,3 +34,9 @@ recorded as gaps rather than invented.
 created (both empty going forward — no retroactive backfill of runs that predate this
 adoption, except the one illustrative `results/` example described below, which is labeled
 retroactive). This entry is the log's founding record.
+
+**Follow-up finding (2026-07-06, same day)**: attempting to actually exercise the manual
+gate described in `CLAUDE.md` Rule 1 surfaced that `Model/VariableK_MR.py` does not write
+the `solutions_k*.csv` files it was assumed to produce (see `CLAUDE.md` Rule 5,
+`examples/adoption-transcript.md` §1 and §3a). Recorded here rather than silently
+corrected, since D01 is the founding decision this gap was found under.

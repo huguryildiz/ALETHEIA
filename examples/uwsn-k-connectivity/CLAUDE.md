@@ -16,7 +16,9 @@ adopted retroactively; there is no active phase plan (see `phase_plan: null` bel
 # No environment manifest exists (gap — see canonical_values / env_manifest below).
 # Requires: Python 3.9+, gurobipy (licensed Gurobi install), numpy; MATLAB for the plot_*.m
 # scripts. No shippable install command is recorded — do not fabricate one.
-python3 Model/VariableK_MR.py   # runs the MILP; writes solutions_k*.csv-shaped output
+python3 Model/VariableK_MR.py   # runs the MILP; writes Results_<timestamp>.txt (aggregate
+                                 # objective/gap/time only — does NOT write solutions_k*.csv;
+                                 # see Rule 5 below, a real gap found by trying to run this.
 # gate_command: none — see "Gate" under Operating rules below.
 ```
 
@@ -53,11 +55,13 @@ project-specific routing rows were needed.
 ## Operating rules (project-pinned summaries)
 
 1. **Gate (honest statement of the gap).** There is no fast, shell-invocable correctness
-   gate. The closest honest check: rerun `Model/VariableK_MR.py` (requires a Gurobi
-   license), regenerate `plot_k1.m` / `plot_k3.m` / `plot_k1_k3.m`, and visually confirm the
-   resulting topology and path values still match what the paper reports. This is a manual,
-   slow, human-in-the-loop check — not a `pytest`-style gate. Recorded here rather than
-   invented, per the pack's ground-truth-only rule.
+   gate, and — see Rule 5 — the manual check below is *aspirational*, not currently
+   reproducible end-to-end as shared. The closest honest check, as it would have to be
+   practiced: rerun `Model/VariableK_MR.py` (requires a Gurobi license), regenerate
+   `plot_k1.m` / `plot_k3.m` / `plot_k1_k3.m`, and visually confirm the resulting topology
+   and path values still match what the paper reports. This is a manual, slow,
+   human-in-the-loop check — not a `pytest`-style gate. Recorded here rather than invented,
+   per the pack's ground-truth-only rule.
 2. **Canonical operating point** — `node=30`, `Rate=0.5`, `dx=1`/`dy=3`/`dz=0.3`, `N_l=3`
    (in `Model/VariableK_MR.py`) change only with an explicit decision-log entry; today
    nothing enforces this beyond convention.
@@ -67,6 +71,14 @@ project-specific routing rows were needed.
    all read a `solutions.csv` that does not exist in this repo (superseded by the
    `solutions_k1.csv` / `solutions_k3.csv` / `solutions_k1_k3.csv` naming). Left in place
    (no re-architecting during adoption); flagged here so it isn't mistaken for a live path.
+5. **Missing solution-export step (found by trying to run Rule 1's gate).**
+   `Model/VariableK_MR.py` writes only `Results_<timestamp>.txt` aggregate summaries
+   (`countNo; k_conn; objective; MIP_gap; runtime`); it has no code path that writes the
+   per-edge `i,j,k,l,val` rows that `solutions_k1.csv` / `solutions_k3.csv` /
+   `solutions_k1_k3.csv` actually contain (confirmed: `grep -n "solutions\|to_csv\|writerow\|savetxt\|DataFrame" Model/VariableK_MR.py`
+   returns nothing). Whatever produced those CSVs is not in this repo. Until that export
+   step is recovered or rewritten, Rule 1's gate cannot be executed end-to-end from the
+   committed code alone — see `examples/adoption-transcript.md` §3a for how this was found.
 
 ## Pointers
 
