@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" width="1240" height="700" font-family="Georgia, 'Times New Roman', serif" role="img" aria-label="A Monte-Carlo estimate of pi. Twenty independent runs (seeds 0 to 19) scatter across a wide band around the true value of pi; their 95 percent confidence interval is plus or minus 8.9e-4. A single reported run at 3.142436 sits outside that interval, off by 8.4e-4, yet was claimed accurate to 1e-4 — a gold sliver 30 times narrower than the real spread. Aletheia holds the claim until the interval is reported and the seed logged.">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C1424"/><stop offset="1" stop-color="#090F1B"/>
+    </linearGradient>
+    <radialGradient id="seal" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#C9A24B" stop-opacity="0.26"/><stop offset="1" stop-color="#C9A24B" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman','Iowan Old Style',serif}
+      .m{font-family:'SF Mono','Menlo','Consolas','Liberation Mono',monospace}
+    </style>
+  </defs>
+
+  <rect width="1240" height="700" fill="url(#ground)"/>
+  <rect x="1" y="1" width="1238" height="698" fill="none" stroke="#C9A24B" stroke-opacity="0.18"/>
+
+  <!-- Header -->
+  <text x="60" y="52" class="serif" font-size="22" letter-spacing="6" fill="#E7ECF3">ALETHEIA</text>
+  <text x="60" y="76" class="m" font-size="11" letter-spacing="1.2" fill="#7C8AA0">ἀλήθεια — disclosure: the state of not being hidden</text>
+  <text x="1180" y="52" text-anchor="end" class="serif" font-size="18" fill="#E7ECF3">A lucky run, and a precision that was never measured</text>
+  <text x="1180" y="76" text-anchor="end" class="m" font-size="11" letter-spacing=".6" fill="#C9A24B" fill-opacity="0.9">real run · π by random darts · N = 10⁶ · 20 seeds recorded · ground truth = math.pi</text>
+
+  <!-- CI bracket (honest precision) -->
+  <line x1="509.2" y1="150" x2="703.6" y2="150" stroke="#4FD1A0" stroke-opacity="0.55"/>
+  <line x1="509.2" y1="146" x2="509.2" y2="156" stroke="#4FD1A0" stroke-opacity="0.55"/>
+  <line x1="703.6" y1="146" x2="703.6" y2="156" stroke="#4FD1A0" stroke-opacity="0.55"/>
+  <text x="606.4" y="139" text-anchor="middle" class="m" font-size="12.5" fill="#4FD1A0">honest precision · 95% CI = ±8.9×10⁻⁴</text>
+  <text x="606.4" y="171" text-anchor="middle" class="m" font-size="10.5" fill="#7C8AA0">measured across 20 runs</text>
+
+  <!-- CI band + mean center -->
+  <rect x="509.2" y="196" width="194.4" height="206" fill="#4FD1A0" fill-opacity="0.13"/>
+  <line x1="606.4" y1="196" x2="606.4" y2="402" stroke="#4FD1A0" stroke-opacity="0.5" stroke-dasharray="3 4"/>
+
+  <!-- claimed ±1e-4 sliver -->
+  <rect x="609.1" y="196" width="21.8" height="206" fill="#C9A24B" fill-opacity="0.55"/>
+  <line x1="620" y1="196" x2="700" y2="212" stroke="#C9A24B" stroke-opacity="0.6" stroke-width="1"/>
+  <text x="706" y="210" class="m" font-size="12.5" fill="#C9A24B">the claim: ±1×10⁻⁴</text>
+  <text x="706" y="226" class="m" font-size="10.5" fill="#7C8AA0">a 22-px sliver — the real spread is ~30× wider</text>
+
+  <!-- true pi line -->
+  <line x1="620" y1="188" x2="620" y2="402" stroke="#4FD1A0" stroke-width="2.5"/>
+  <text x="620" y="182" text-anchor="middle" class="m" font-size="12" fill="#4FD1A0">true π = 3.14159265…</text>
+
+  <!-- value axis -->
+  <line x1="150" y1="402" x2="1090" y2="402" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <g class="m" font-size="11" fill="#7C8AA0" text-anchor="middle">
+    <text x="292.1" y="420">−3</text><text x="401.4" y="420">−2</text><text x="510.7" y="420">−1</text>
+    <text x="620" y="420">0</text><text x="729.3" y="420">+1</text><text x="838.6" y="420">+2</text><text x="947.9" y="420">+3</text>
+  </g>
+  <g stroke="#FFFFFF" stroke-opacity="0.07"><line x1="292.1" y1="398" x2="292.1" y2="402"/><line x1="401.4" y1="398" x2="401.4" y2="402"/><line x1="510.7" y1="398" x2="510.7" y2="402"/><line x1="729.3" y1="398" x2="729.3" y2="402"/><line x1="838.6" y1="398" x2="838.6" y2="402"/><line x1="947.9" y1="398" x2="947.9" y2="402"/></g>
+  <text x="620" y="444" text-anchor="middle" class="m" font-size="11.5" fill="#9AA6B6" letter-spacing=".5">estimate − π   (×10⁻³)</text>
+
+  <!-- the 20 runs -->
+  <g fill="#4FD1A0" stroke="#0C1424" stroke-width="1.5">
+    <circle cx="310.8" cy="372" r="7"/><circle cx="325.7" cy="356" r="7"/><circle cx="368.5" cy="372" r="7"/>
+    <circle cx="378.6" cy="356" r="7"/><circle cx="410.1" cy="372" r="7"/><circle cx="421.0" cy="356" r="7"/>
+    <circle cx="432.4" cy="372" r="7"/><circle cx="546.5" cy="372" r="7"/><circle cx="549.5" cy="356" r="7"/>
+    <circle cx="570.5" cy="372" r="7"/><circle cx="595.4" cy="372" r="7"/><circle cx="707.8" cy="372" r="7"/>
+    <circle cx="717.4" cy="356" r="7"/><circle cx="729.2" cy="372" r="7"/><circle cx="751.1" cy="372" r="7"/>
+    <circle cx="758.1" cy="356" r="7"/><circle cx="818.0" cy="372" r="7"/><circle cx="826.7" cy="356" r="7"/>
+    <circle cx="870.4" cy="372" r="7"/><circle cx="1041.0" cy="372" r="7"/>
+  </g>
+
+  <!-- the single reported "done" run (seed 42) -->
+  <line x1="712.2" y1="330" x2="712.2" y2="365" stroke="#C9A24B" stroke-opacity="0.5" stroke-dasharray="2 4"/>
+  <circle cx="712.2" cy="318" r="10" fill="none" stroke="#C9A24B" stroke-width="1.5" stroke-opacity="0.8"/>
+  <circle cx="712.2" cy="318" r="6.5" fill="#EF5F5F" stroke="#0C1424" stroke-width="1.5"/>
+  <rect x="742" y="286" width="330" height="64" rx="9" fill="#0C1424" stroke="#C9A24B" stroke-opacity="0.4"/>
+  <text x="758" y="308" class="m" font-size="12.5" fill="#E7ECF3">seed 42 — the single “done” run</text>
+  <text x="758" y="326" class="m" font-size="11.5" fill="#EF5F5F">3.142436 · off by 8.4×10⁻⁴ = 8× the claim,</text>
+  <text x="758" y="342" class="m" font-size="11.5" fill="#7C8AA0">and outside the 95% CI it was never compared to.</text>
+
+  <!-- legend -->
+  <g transform="translate(150,478)" class="m" font-size="12">
+    <circle cx="8" cy="-4" r="6.5" fill="#4FD1A0"/>
+    <text x="24" y="0" fill="#9AA6B6">20 independent runs · seeds 0–19</text>
+    <circle cx="322" cy="-4" r="6.5" fill="#EF5F5F"/><circle cx="322" cy="-4" r="9.5" fill="none" stroke="#C9A24B" stroke-width="1.4"/>
+    <text x="340" y="0" fill="#9AA6B6">the one run reported as done</text>
+    <rect x="612" y="-9" width="30" height="10" fill="#4FD1A0" fill-opacity="0.13"/>
+    <text x="650" y="0" fill="#9AA6B6">95% CI (honest)</text>
+    <rect x="806" y="-9" width="10" height="10" fill="#C9A24B" fill-opacity="0.55"/>
+    <text x="824" y="0" fill="#9AA6B6">claimed ±1×10⁻⁴</text>
+  </g>
+
+  <line x1="60" y1="512" x2="1180" y2="512" stroke="#FFFFFF" stroke-opacity="0.07"/>
+
+  <!-- gate + closing -->
+  <circle cx="150" cy="592" r="58" fill="url(#seal)"/>
+  <circle cx="150" cy="592" r="33" fill="#0C1424" stroke="#C9A24B" stroke-opacity="0.7" stroke-width="1.5"/>
+  <circle cx="150" cy="592" r="27" fill="none" stroke="#C9A24B" stroke-opacity="0.28"/>
+  <text x="150" y="588" text-anchor="middle" font-size="17" fill="#C9A24B">⊘→✓</text>
+  <text x="150" y="604" text-anchor="middle" class="m" font-size="7.5" letter-spacing="2" fill="#C9A24B" fill-opacity="0.85">GATE</text>
+
+  <text x="228" y="566" class="serif" font-size="19" fill="#E7ECF3">Held until the claim matches the measurement.</text>
+  <text x="228" y="592" font-size="13.5" fill="#9AA6B6">One run landed at 3.1424 and was called “1×10⁻⁴ accurate.” Its real error is 8.4×10⁻⁴ — eight times the claim.</text>
+  <text x="228" y="612" font-size="13.5" fill="#9AA6B6">Across 20 recorded seeds the 95% CI is ±8.9×10⁻⁴: the honest precision at N=10⁶ is ~10⁻³, not 10⁻⁴.</text>
+  <text x="228" y="640" class="m" font-size="11.5" fill="#7C8AA0">⛔ CLOSURE BLOCKED — claimed 1×10⁻⁴ unsupported (n=1, seed unlogged)   →   ✔ VERIFIED once the interval is reported and the seed logged</text>
+
+  <line x1="60" y1="662" x2="1180" y2="662" stroke="#FFFFFF" stroke-opacity="0.06"/>
+  <text x="620" y="682" text-anchor="middle" class="serif" font-size="12.5" fill="#7C8AA0">Real run · seeds 0–19 + seed 42 · NumPy 2.0 <tspan class="m">default_rng</tspan> · every estimate checked against <tspan fill="#C9A24B">math.pi</tspan> · not a mockup</text>
+</svg>

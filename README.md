@@ -37,11 +37,15 @@ discipline it triggers — with escalation conditions, so a small change never i
 ceremony.
 
 <p align="center">
-  <img src="assets/before-after.svg" alt="Chart: for a UAV at 100 m the correct 3GPP TR 36.777 UMa-AV line-of-sight probability stays high with distance, while an AI model that mixed in UMi-AV parameters collapses it — at 1 km, 0.85 versus 0.25, a 10 dB error and physically backwards." width="100%">
+  <a href="https://claude.ai/code/artifact/83f5395e-a984-4391-85b7-18c8056ec7a6"><img src="assets/before-after.svg" alt="Chart: for a UAV at 100 m the correct 3GPP TR 36.777 UMa-AV line-of-sight probability stays high with distance, while an AI model that mixed in UMi-AV parameters collapses it — at 1 km, 0.85 versus 0.25, a 10 dB error and physically backwards." width="100%"></a>
 </p>
 
 <p align="center">
   <sub>A <strong>real</strong> case (<a href="examples/a2g-pathloss-3gpp.md">worked out here</a> · <a href="https://claude.ai/code/artifact/83f5395e-a984-4391-85b7-18c8056ec7a6">animated version</a>): an AI mixed 3GPP scenario parameters — surface-correct, a 10 dB error — and is held at the gate until every coefficient is traced to one scenario and one spec table.</sub>
+</p>
+
+<p align="center">
+  <a href="https://claude.ai/code/artifact/5bfcc9ae-2530-47d3-b5ce-fcd938d31238"><img src="assets/pi-monte-carlo.svg" alt="Dot-plot: twenty Monte-Carlo estimates of π (seeds 0–19) scatter across a band far wider than the ±1e-4 a single lucky run claimed; their 95% CI is ±8.9e-4, and the reported run at 3.142436 sits outside that interval, off by 8.4e-4. Aletheia holds the claim until the interval is reported and the seed logged." width="100%"></a>
 </p>
 
 <p align="center">
