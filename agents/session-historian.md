@@ -39,7 +39,7 @@ if no block exists.
 
 ### Canonical state
 - Operating point / protected defaults: <changed or unchanged since last entry>
-- Test total: <N passed, M skipped>   (from the latest build-log entry — do not run tests)
+- Test total: <N passed, M skipped> — as of build-log <entry date>, not re-run   (copied from the latest build-log entry — do not run tests)
 
 ### Open questions (max 3, most blocking first)
 - <from the open-questions doc>
@@ -63,7 +63,9 @@ if no block exists.
 
 - The plan/status board may be stale — build log + git are fresher; on conflict treat
   build log + git as authoritative and flag the board as drifted.
-- Test totals come from the latest build-log entry; do not run the suite yourself.
+- Test totals come from the latest build-log entry; do not run the suite yourself. Always
+  stamp the number with its age and source (e.g. "as of build-log 2026-07-01, not re-run") — a stale
+  number in an authoritative-looking snapshot is the derived-vs-stored trap.
 - `TODO.md` is an ephemeral buffer and is often mid-rewrite between phases; if the latest
   build-log entry says "phase N started" but TODO still shows phase N-1 items, report
   phase N in progress and flag the buffer.

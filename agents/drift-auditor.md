@@ -53,7 +53,15 @@ Two layers state mutually incompatible things — needs a human to pick the cano
 
 ### Suggested next step
 One concrete action, or "ready — no drift".
+
+### Coverage (mandatory)
+- **Files opened**: <the actual paths you read>
+- **Greps run**: <the patterns/commands you ran>
+- **Layers skipped + why**: <e.g. "notebooks — no notebook-facing content in scope">
 ```
+
+A ✅ "in sync" verdict **without** a Coverage footer is invalid: a green from a shallow pass
+is unfalsifiable, and the footer is what lets the caller judge the depth behind the verdict.
 
 # Rules
 
