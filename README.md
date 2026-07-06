@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">ALETHEIA</h1>
+  <img src="assets/aletheia-hero.png" alt="ALETHEIA" width="100%">
 </p>
 
 <p align="center">
@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/license-MIT-0f172a?style=for-the-badge" alt="MIT License">
-  <img src="https://img.shields.io/badge/markdown--only-no%20executable%20code-0b1220?style=for-the-badge" alt="Markdown only">
-  <img src="https://img.shields.io/badge/Claude%20Code-plugin-0b1220?style=for-the-badge" alt="Claude Code plugin">
-  <img src="https://img.shields.io/badge/Agent%20Skills-standard-0b1220?style=for-the-badge" alt="Agent Skills standard">
-  <img src="https://img.shields.io/badge/disciplines-18-0b1220?style=for-the-badge" alt="18 disciplines">
+  <img src="https://img.shields.io/badge/license-MIT-0f172a?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License">
+  <img src="https://img.shields.io/badge/markdown--only-no%20executable%20code-0b1220?style=for-the-badge&logo=markdown&logoColor=white" alt="Markdown only">
+  <img src="https://img.shields.io/badge/Claude%20Code-plugin-0b1220?style=for-the-badge&logo=claude&logoColor=white" alt="Claude Code plugin">
+  <img src="https://img.shields.io/badge/Agent%20Skills-standard-0b1220?style=for-the-badge&logo=anthropic&logoColor=white" alt="Agent Skills standard">
+  <img src="https://img.shields.io/badge/disciplines-18-0b1220?style=for-the-badge&logo=academia&logoColor=white" alt="18 disciplines">
 </p>
 
 <p align="center">
@@ -101,6 +101,14 @@ domains.**
 claude --plugin-url https://github.com/huguryildiz/Aletheia
 ```
 
+Install persistently — marketplace name and plugin name are both `aletheia`, so the install
+target is `aletheia@aletheia`:
+
+```bash
+claude plugin marketplace add huguryildiz/Aletheia
+claude plugin install aletheia@aletheia
+```
+
 Inside your project, invoke *“run the skill-library-generator.”* It scans the repository
 read-only, interviews you to fill the configuration bindings, and — only after your approval —
 scaffolds the record surfaces. Each skill thereafter refers to those bindings (`{{gate_command}}`,
@@ -108,8 +116,23 @@ scaffolds the record surfaces. Each skill thereafter refers to those bindings (`
 discipline reads naturally whether the project runs a solver, a climate model, a training loop,
 or none of the above.
 
-**Ten-minute tour:** [`docs/quickstart.md`](docs/quickstart.md) · **install options** (plugin
-vs. a plain `.claude/` copy): [`docs/install.md`](docs/install.md) · **full adoption
+**Manual install** (no plugin marketplace, no Claude Code plugin system — just files). Plain
+`.claude/skills/` discovery is one level deep, so flatten the core/extended grouping when you
+copy:
+
+```bash
+# from the aletheia checkout, inside your project:
+cp -R aletheia/skills/core/*                  .claude/skills/
+cp -R aletheia/skills/extended/*              .claude/skills/
+cp -R aletheia/skills/skill-library-generator .claude/skills/
+cp    aletheia/agents/*.md                    .claude/agents/
+```
+
+Then invoke *"run the skill-library-generator"* — skill names are unchanged (they come from
+frontmatter); only the `aletheia:` namespace prefix is absent compared to the plugin path.
+
+**Ten-minute tour:** [`docs/quickstart.md`](docs/quickstart.md) · **full install reference**
+(plugin vs. manual, in detail): [`docs/install.md`](docs/install.md) · **full adoption
 walkthrough:** [`docs/adopting-in-a-new-project.md`](docs/adopting-in-a-new-project.md).
 
 ## Design principles
@@ -155,7 +178,7 @@ examples/                 5 worked examples + portability matrix
 
 ```bibtex
 @software{yildiz_aletheia_2026,
-  author  = {Y{\i}ld{\i}z, H{\"u}seyin U{\u{g}}ur},
+  author  = {Yildiz, Huseyin Ugur},
   title   = {Aletheia: Operating Discipline for Rigorous, Reproducible
              Computational-Science Research},
   year    = {2026},

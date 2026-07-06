@@ -11,14 +11,24 @@ Try it for one session, no installation:
 ```bash
 claude --plugin-dir /path/to/aletheia        # local clone
 # or
-claude --plugin-url https://github.com/huguryildiz/aletheia
+claude --plugin-url https://github.com/huguryildiz/Aletheia
 ```
 
-Install persistently: add this repository as a plugin marketplace (see the official Claude
-Code *plugin marketplaces* documentation), then:
+Install persistently: register this repository as a plugin marketplace, then install from it
+(the marketplace name and the plugin name are both `aletheia`, per
+[`.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json), so the install target
+is `aletheia@aletheia`):
 
 ```bash
-claude plugin install aletheia@<your-marketplace-name>
+claude plugin marketplace add huguryildiz/Aletheia
+claude plugin install aletheia@aletheia
+```
+
+Or, inside an interactive session, the `/plugin` slash-command equivalents:
+
+```text
+/plugin marketplace add huguryildiz/Aletheia
+/plugin install aletheia@aletheia
 ```
 
 Everything loads namespaced: `aletheia:correctness-gate`, `aletheia:phase-gate`,
