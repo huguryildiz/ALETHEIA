@@ -1,0 +1,62 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Codex symlink surface is intact (all present, none broken)
+        run: |
+          set -euo pipefail
+          # every entry under plugins/aletheia/skills must be a symlink that resolves
+          broken=$(find -L plugins/aletheia/skills -type l -print)
+          if [ -n "$broken" ]; then echo "BROKEN SYMLINKS:"; echo "$broken"; exit 1; fi
+          n=$(find plugins/aletheia/skills -type l | wc -l | tr -d ' ')
+          echo "symlinks resolving: $n"
+          test "$n" -ge 20 || { echo "expected >=20 symlinks, got $n"; exit 1; }
+
+      - name: Relative markdown links resolve
+        run: |
+          set -euo pipefail
+          fail=0
+          while IFS= read -r md; do
+            # extract ](target) links that are not http/mailto/anchor-only
+            grep -oE '\]\(([^)]+)\)' "$md" | sed -E 's/^\]\(//; s/\)$//' | while IFS= read -r link; do
+              case "$link" in
+                http*|mailto:*|\#*) continue ;;
+              esac
+              target="${link%%#*}"                       # strip #anchor
+              [ -z "$target" ] && continue
+              dir=$(dirname "$md")
+              if [ ! -e "$dir/$target" ] && [ ! -e "$target" ]; then
+                echo "DEAD LINK in $md -> $link"; exit 3
+              fi
+            done || fail=1
+          done < <(git ls-files '*.md')
+          test "$fail" -eq 0
+
+      - name: Manifests and schema are valid JSON
+        run: |
+          set -euo pipefail
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json \
+                   plugins/aletheia/.codex-plugin/plugin.json \
+                   templates/results-meta.schema.json; do
+            python3 -c "import json,sys; json.load(open('$f')); print('ok', '$f')"
+          done
+
+      - name: results-meta schema is a valid JSON Schema
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet jsonschema
+          python3 -c "import json,jsonschema; jsonschema.Draft202012Validator.check_schema(json.load(open('templates/results-meta.schema.json'))); print('schema ok')"
+
+      - name: Plugin validate (best-effort; runs only if the CLI is present)
+        run: |
+          if command -v claude >/dev/null 2>&1; then
+            claude plugin validate --strict || exit 1
+          else
+            echo "claude CLI not present in CI runner — skipping (run locally before release)"
+          fi
