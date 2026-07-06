@@ -1,0 +1,22 @@
+# Domain-vocabulary denylist for the portability gate.
+# The gate greps skills/ and templates/ for these (case-insensitive, word-boundary)
+# and must return ZERO matches. Add a term when a domain noun risks leaking into
+# the generic layer. Do NOT add generic infrastructure words (CUDA, solver, seed).
+# --- source project (UWSN k-connectivity) ---
+UWSN
+underwater
+k-connectivity
+sonobuoy
+acoustic modem
+# --- example domains (legit only inside examples/) ---
+3GPP
+UMa-AV
+UMi-AV
+path loss
+tokamak
+plasma
+VQE
+ansatz
+climate ensemble
+molecular dynamics
+binding free energy

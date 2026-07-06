@@ -10,8 +10,8 @@ follows, not as code to install. Contributions keep that property.
    surface at `plugins/aletheia/skills/` is **relative symlinks** to those sources — never
    edit a copy, never add a generated one.
 2. **No domain terms in `skills/` or `templates/`.** The pack is portable by construction; a
-   mechanical gate requires zero domain vocabulary there. Concrete instantiation belongs in
-   [`examples/`](examples/) only.
+   **CI portability gate** (denylist in `docs/portability-vocab.txt`) requires zero domain
+   vocabulary there. Concrete instantiation belongs in [`examples/`](examples/) only.
 3. **Ground-truth only.** A runbook step must be verified against a real repository. Label
    inference as inference. A wrong runbook is worse than none.
 4. **Record decisions.** A significant change adds an entry at the top of

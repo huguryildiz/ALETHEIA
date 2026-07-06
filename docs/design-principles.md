@@ -64,7 +64,8 @@ solver or model gets demoted to the examples file.
 Mechanical gate, run before every release (must return zero matches):
 
 ```bash
-grep -riE "<your project's domain vocabulary — solver names, model terms, place names>" skills templates
+# denylist lives in docs/portability-vocab.txt; CI runs this on every push
+grep -riwE "$(grep -vE '^\s*#|^\s*$' docs/portability-vocab.txt | paste -sd'|' -)" skills templates
 ```
 
 Consequence: skills and templates name no domain and no example file — they point to worked

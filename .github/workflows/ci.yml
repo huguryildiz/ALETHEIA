@@ -59,6 +59,15 @@ jobs:
           python3 -m pip install --quiet jsonschema
           python3 -c "import json,jsonschema; jsonschema.Draft202012Validator.check_schema(json.load(open('templates/results-meta.schema.json'))); print('schema ok')"
 
+      - name: Portability gate — no domain terms in skills/ or templates/
+        run: |
+          set -euo pipefail
+          terms=$(grep -vE '^\s*#|^\s*$' docs/portability-vocab.txt)
+          if grep -riwE "$(echo "$terms" | paste -sd'|' -)" skills templates; then
+            echo "Domain vocabulary leaked into skills/ or templates/"; exit 1
+          fi
+          echo "portability gate: clean"
+
       - name: Plugin validate (best-effort; runs only if the CLI is present)
         run: |
           if command -v claude >/dev/null 2>&1; then
